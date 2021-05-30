@@ -1,0 +1,23 @@
+load("@requirements//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary", "py_test")
+
+exports_files(["requirements.txt"])
+
+py_binary(
+  name = "sudoku_solver",
+  srcs = ["sudoku_solver.py"],
+  deps = [requirement("ortools")],
+)
+
+py_test(
+    name = "test_sudoku_solver",
+    srcs = ["test_sudoku_solver.py"],
+    data = [
+        "example_killer_sudoku.txt",
+        "example_sudoku.txt",
+    ],
+    deps = [
+        ":sudoku_solver",
+        "@rules_python//python/runfiles",
+    ],
+)
