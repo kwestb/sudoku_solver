@@ -1,6 +1,6 @@
 This repository contains an implementation of a Sudoku solver that solves the problem using
 [integer programming](https://en.wikipedia.org/wiki/Integer_programming). It is written in Python
-and uses the Google [OT-Tools](https://developers.google.com/optimization) library along with the
+and uses the Google [OR-Tools](https://developers.google.com/optimization) library along with the
 [SCIP](https://www.scipopt.org/) backend to solve instances.
 
 This software is built and tested using [Bazel](https://bazel.build/) and
