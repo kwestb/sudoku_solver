@@ -1,7 +1,6 @@
 load("@requirements//:requirements.bzl", "requirement")
 load("@rules_python//python:defs.bzl", "py_binary", "py_test")
-
-exports_files(["requirements.txt"])
+load("@rules_python//python:pip.bzl", "compile_pip_requirements")
 
 py_binary(
   name = "sudoku_solver",
@@ -20,4 +19,10 @@ py_test(
         ":sudoku_solver",
         "@rules_python//python/runfiles",
     ],
+)
+
+compile_pip_requirements(
+    name = "compile_pip_requirements",
+    requirements_in = "//:requirements.in",
+    requirements_txt = "//:requirements.txt",
 )
